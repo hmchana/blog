@@ -3,17 +3,26 @@ import { connect } from 'react-redux';
 import { deleteContact, setCurrent } from '../../actions/contact';
 
 const ContactItem = ({ contact, deleteContact, setCurrent }) => {
-  const { id, name, email, phone } = contact;
+  const { id, userId, title, body } = contact;
 
   const onDelete = () => {
     deleteContact(id);
   };
   return (
     <div className='card bg-light'>
-      <h3 className='text-primary text-left'>{name}</h3>
+      <h3 className='text-primary text-left'>
+        {' '}
+        <strong>User Id</strong> :{userId}
+      </h3>
       <ul className='list'>
-        <li>{email}</li>
-        <li>{phone}</li>
+        <li>
+          {' '}
+          <strong>Title</strong> : {title}
+        </li>
+        <li>
+          {' '}
+          <strong>Body</strong> : {body}
+        </li>
       </ul>
       <p>
         <button

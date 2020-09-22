@@ -9,21 +9,21 @@ const ContactForm = ({
   clearCurrent,
 }) => {
   const [contact, setContact] = useState({
-    name: '',
-    email: '',
-    phone: '',
+    userId: '',
+    title: '',
+    body: '',
   });
 
-  const { name, email, phone } = contact;
+  const { userId, title, body } = contact;
 
   useEffect(() => {
     if (current !== null) {
       setContact(current);
     } else {
       setContact({
-        name: '',
-        email: '',
-        phone: '',
+        userId: '',
+        title: '',
+        body: '',
       });
     }
   }, [current]);
@@ -48,35 +48,33 @@ const ContactForm = ({
 
   return (
     <form onSubmit={onSubmit}>
-      <h2 className='text-primary'>
-        {current ? 'Update Contact' : 'Add Contact'}
-      </h2>
+      <h2 className='text-primary'>{current ? 'Update BLOG' : 'Add BLOG'}</h2>
       <input
         type='text'
-        placeholder='Name'
-        name='name'
-        value={name}
-        onChange={onChange}
-      />
-      <input
-        type='email'
-        placeholder='Email'
-        name='email'
-        value={email}
+        placeholder='UserId'
+        name='userId'
+        value={userId}
         onChange={onChange}
       />
       <input
         type='text'
-        placeholder='Phone'
-        name='phone'
-        value={phone}
+        placeholder='Title'
+        name='title'
+        value={title}
+        onChange={onChange}
+      />
+      <input
+        type='text'
+        placeholder='Body'
+        name='body'
+        value={body}
         onChange={onChange}
       />
       <div>
         <input
           type='submit'
           className='btn btn-primary btn-block'
-          value={current ? 'Update Contact' : 'Add Contact'}
+          value={current ? 'Update BLOG' : 'Add BLOG'}
         />
         {current && (
           <div>
